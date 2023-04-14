@@ -6,3 +6,4 @@ public class CAS {
     public String CASLogic;
     public ArrayList<LogicName> LogicNameList = new ArrayList<>();
 }
+
