@@ -11,7 +11,6 @@ import java.io.IOException;
 
 public class GUI {
     public void CreatWindow(){
-
         Font Ft = new Font("宋体",Font.BOLD,16);
         JFrame jf = new JFrame();
         jf.setLocation(500,300);
@@ -21,7 +20,6 @@ public class GUI {
         jf.setTitle("FDAS_ParseLogic");
         ImageIcon imaicon = new ImageIcon("./src/FDAS_ParseLogic_Icon2.PNG");
         jf.setIconImage(imaicon.getImage());
-
         JPanel barpanel = new JPanel();
         barpanel.setLayout(null);
         barpanel.setBackground(Color.white);
@@ -178,20 +176,22 @@ public class GUI {
 
 
     public int CreatWarningWindow(String WarningText){
+        Font Ft = new Font("宋体",Font.PLAIN,16);
         JFrame jfwarning = new JFrame();
-        jfwarning.setSize(500,300);
+        jfwarning.setSize(300,150);
+        jfwarning.setLocation(500,300);
+        jfwarning.setFont(Ft);
         jfwarning.setLayout(null);
         jfwarning.setTitle("Warning");
         jfwarning.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        jfwarning.setAlwaysOnTop(true);
         ImageIcon WarningIcon = new ImageIcon("./src/FDAS_ParseLogic_Icon2.PNG");
         jfwarning.setIconImage(WarningIcon.getImage());
         Label Wtext = new Label(WarningText,Label.CENTER);
-        Wtext.setBounds(0,150,500,25);
-/*        JTextArea JTA = new JTextArea();
-        JTA.setText(WarningText);
-        JTA.setBounds(250,100,500,200);*/
+        Wtext.setFont(Ft);
+        Wtext.setBounds(0,25,300,25);
         JButton Btn = new JButton();
-        Btn.setBounds(250,200,50,25);
+        Btn.setBounds(120,75,50,25);
         Btn.setText("OK");
         Btn.addActionListener(new ActionListener() {
             @Override
@@ -208,7 +208,6 @@ public class GUI {
     public int CreateICDWindow(String str){
         JFrame jfICD = new JFrame("ICD Message");
         jfICD.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
         jfICD.setVisible(true);
         return 0;
     }

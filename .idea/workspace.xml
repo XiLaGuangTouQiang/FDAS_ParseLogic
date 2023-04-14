@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1331c975-bebc-4479-952f-7de04c96a9c4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CAS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CAS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBStructure.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/DBStructure.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/DB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,12 +26,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IDEA Project/FXtest&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/IDEA Project/FDAS_ParseLogic"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main" />
@@ -48,5 +51,12 @@
       <updated>1681285375235</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="FCasList" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

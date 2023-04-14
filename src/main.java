@@ -19,20 +19,28 @@ public class main {
     static List<CAS> CASList = new ArrayList<>();
     static String CASALLEXCELPATH = new String();
     static String CASEXCELPATH = new String();
+    static ArrayList<CAS> FCasList = new ArrayList<>();
     public static void main(String[] args) throws IOException {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         }catch(ClassNotFoundException | InstantiationException | IllegalAccessException| UnsupportedLookAndFeelException e){
             e.printStackTrace();
         }
-
-
         GUI JF = new GUI();
+        File f = new File(".\\CasDB.bin");
+        if(f.exists()){
+            DB db = new DB();
+            try {
+                db.DBParse();
+            }catch (Exception e){
+                JF.CreatWarningWindow("CAS Load Failed !" + e);
+            }
+            JF.CreatWarningWindow("CAS Has Load!");
+        }else {
+            JF.CreatWarningWindow("CAS isnt Exist,please Updata!");
+        }
         JF.CreatWindow();
-
     }
-
-
     public static void getCASmsg() {
         FileInputStream Filepath = null;
         try {

@@ -1,20 +1,19 @@
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DB {
     static byte[] NewDB;
     static byte[] CasDB;
+
     static ArrayList<byte[]> CASDB = new ArrayList<>();
     public void DBCreat() throws IOException {
-/*        File f = new File("C:\\Users\\206226\\Desktop\\迎角限制.bin");
-        DataInputStream read = new DataInputStream(new FileInputStream(f));
-        NewDB = new byte[(int)f.length()];
-        read.read(NewDB);
-        System.out.printf("1");*/
-        int offset = 0;
+        int CASlen = 0;
+        byte[] CASNum = IntToByte(main.CASList.size());
+        CASDB.add(CASNum);
+        CASlen += 4;
         for(int i=0;i<main.CASList.size();i++){
-            int CASlen = 0;
             byte[] CASID = IntToByte(main.CASList.get(i).CASID);
             CASDB.add(CASID);
             CASlen += 4;
@@ -54,22 +53,91 @@ public class DB {
                 CASlen += Comment.length;
             }
             //byte[] LogicName = main.CASList.get(i).LogicNameList.get(i);
-            offset += CASlen;
         }
-        FileOutputStream f2 = new FileOutputStream(".\\迎角限制2.bin");
+
+        FileOutputStream f2 = new FileOutputStream(".\\CasDB.bin");
         BufferedOutputStream BF = new BufferedOutputStream(f2);
         DataOutputStream write = new DataOutputStream(BF);
-        /*write.write(NewDB);*/
+        for(int i=0;i<CASDB.size();i++){
+            write.write(CASDB.get(i));
+        }
         write.close();
         BF.close();
         f2.close();
     }
+    public void DBParse() throws IOException {
+        File f = new File(".\\CasDB.bin");
+        DataInputStream read = new DataInputStream(new FileInputStream(f));
+        NewDB = new byte[(int)f.length()];
+        read.read(NewDB);
+        int offset = 0;
+        int CASNum = ByteToInt(Arrays.copyOfRange(NewDB,offset,offset + 4));
+        offset += 4;
+        for(int i=0;i<CASNum;i++){
+            CAS Fcas = new CAS();
+            Fcas.CASID = ByteToInt(Arrays.copyOfRange(NewDB,offset,offset + 4));
+            offset += 4;
+            int len = ByteToInt(Arrays.copyOfRange(NewDB,offset,offset + 4));
+            offset += 4;
+            Fcas.CASLogic = ByteToString(NewDB,len,offset);
+            offset += len;
+            int num = ByteToInt(Arrays.copyOfRange(NewDB,offset,offset + 4));
+            offset += 4;
+            for(int j=0;j<num;j++){
+                LogicName LN = new LogicName();
+                len = ByteToInt(Arrays.copyOfRange(NewDB,offset,offset + 4));
+                offset += 4;
+                LN.LogicName = ByteToString(NewDB,len,offset);
+                offset += len;
+                len = ByteToInt(Arrays.copyOfRange(NewDB,offset,offset + 4));
+                offset += 4;
+                LN.ICDName = ByteToString(NewDB,len,offset);
+                offset += len;
+                len = ByteToInt(Arrays.copyOfRange(NewDB,offset,offset + 4));
+                offset += 4;
+                LN.DataType = ByteToString(NewDB,len,offset);
+                offset += len;
+                len = ByteToInt(Arrays.copyOfRange(NewDB,offset,offset + 4));
+                offset += 4;
+                LN.Comment = ByteToString(NewDB,len,offset);
+                offset += len;
+                Fcas.LogicNameList.add(LN);
+            }
+            main.FCasList.add(Fcas);
+        }
+    }
     public byte[] IntToByte(int num){
         byte[] src = new byte[4];
-        src[0] =  (byte) (num & 0xFF);
-        src[1] =  (byte) ((num>>8) & 0xFF);
-        src[2] =  (byte) ((num>>16) & 0xFF);
-        src[3] =  (byte) ((num>>24) & 0xFF);
+        src[3] =  (byte) (num & 0xFF);
+        src[2] =  (byte) ((num>>8) & 0xFF);
+        src[1] =  (byte) ((num>>16) & 0xFF);
+        src[0] =  (byte) ((num>>24) & 0xFF);
         return  src;
+    }
+
+    private int ByteToInt(byte[] tempdata){
+        int res = 0;
+        int len = tempdata.length;
+        for(int i =0; i<len;i++){
+            int data = minus2plus((int)tempdata[i]);
+            res+=(data)<<((len-i-1)*8);
+        }
+        return res;
+    }
+
+    private int minus2plus(int val){
+        val = val<0? (val+256):val;
+        return val;
+    }
+
+    private String ByteToString(byte[] tempdata, int len, int offset){
+        StringBuilder temp1 = new StringBuilder();
+        for(int i=0;i<len;i++){
+            int b = ByteToInt(Arrays.copyOfRange(tempdata,offset+i,offset+i+1));
+            if (b!=0)
+                temp1.append((char)b);
+        }
+        String ConditionText = temp1.toString();
+        return ConditionText;
     }
 }
