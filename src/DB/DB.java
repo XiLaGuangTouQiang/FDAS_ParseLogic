@@ -1,3 +1,7 @@
+package DB;
+
+
+import Data.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -10,42 +14,42 @@ public class DB {
     static ArrayList<byte[]> CASDB = new ArrayList<>();
     public void DBCreat() throws IOException {
         int CASlen = 0;
-        byte[] CASNum = IntToByte(main.CASList.size());
+        byte[] CASNum = IntToByte(CASData.CASList.size());
         CASDB.add(CASNum);
         CASlen += 4;
-        for(int i=0;i<main.CASList.size();i++){
-            byte[] CASID = IntToByte(main.CASList.get(i).CASID);
+        for(int i = 0; i< CASData.CASList.size(); i++){
+            byte[] CASID = IntToByte(CASData.CASList.get(i).CASID);
             CASDB.add(CASID);
             CASlen += 4;
-            byte[] CASName = main.CASList.get(i).CASLogic.getBytes();
+            byte[] CASName = CASData.CASList.get(i).CASLogic.getBytes();
             byte[] CASNameLen = IntToByte(CASName.length);
             CASDB.add(CASNameLen);
             CASlen += 4;
             CASDB.add(CASName);
             CASlen += CASNameLen.length;
-            byte[] LogicNameNum = IntToByte(main.CASList.get(i).LogicNameList.size());
+            byte[] LogicNameNum = IntToByte(CASData.CASList.get(i).LogicNameList.size());
             CASDB.add(LogicNameNum);
             CASlen += 4;
-            for (int j=0;j<main.CASList.get(i).LogicNameList.size();j++){
-                byte[] LogicName = main.CASList.get(i).LogicNameList.get(j).LogicName.getBytes();
+            for (int j=0;j<CASData.CASList.get(i).LogicNameList.size();j++){
+                byte[] LogicName = CASData.CASList.get(i).LogicNameList.get(j).LogicName.getBytes();
                 byte[] LogicNameLen = IntToByte(LogicName.length);
                 CASDB.add(LogicNameLen);
                 CASlen += 4;
                 CASDB.add(LogicName);
                 CASlen += LogicName.length;
-                byte[] ICDName = main.CASList.get(i).LogicNameList.get(j).ICDName.getBytes();
+                byte[] ICDName = CASData.CASList.get(i).LogicNameList.get(j).ICDName.getBytes();
                 byte[] ICDNameLen = IntToByte(ICDName.length);
                 CASDB.add(ICDNameLen);
                 CASlen += 4;
                 CASDB.add(ICDName);
                 CASlen += ICDName.length;
-                byte[] DataType = main.CASList.get(i).LogicNameList.get(j).DataType.getBytes();
+                byte[] DataType = CASData.CASList.get(i).LogicNameList.get(j).DataType.getBytes();
                 byte[] DataTypeLen = IntToByte(DataType.length);
                 CASDB.add(DataTypeLen);
                 CASlen += 4;
                 CASDB.add(DataType);
                 CASlen += DataType.length;
-                byte[] Comment = main.CASList.get(i).LogicNameList.get(j).Comment.getBytes();
+                byte[] Comment = CASData.CASList.get(i).LogicNameList.get(j).Comment.getBytes();
                 byte[] CommentLen = IntToByte(Comment.length);
                 CASDB.add(CommentLen);
                 CASlen += 4;
@@ -103,7 +107,7 @@ public class DB {
                 offset += len;
                 Fcas.LogicNameList.add(LN);
             }
-            main.FCasList.add(Fcas);
+            CASData.FCasList.add(Fcas);
         }
     }
     public byte[] IntToByte(int num){

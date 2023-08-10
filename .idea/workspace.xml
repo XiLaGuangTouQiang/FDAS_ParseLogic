@@ -6,11 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="1331c975-bebc-4479-952f-7de04c96a9c4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBStructure.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/DBStructure.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/DB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/CAS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/DB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/Excel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/GUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/GUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/GUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/GUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/GUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/GUI$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/GUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/LogicName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/XMLBuild.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FDAS_ParseLogic/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CAS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Excel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LogicName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XMLBuild.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,20 +32,35 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2OJj2ltnGGsSl2V9hafqltsD0O2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/IDEA Project/FDAS_ParseLogic"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/IDEA Project/FDAS_ParseLogic&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="Data" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main" />
@@ -51,6 +80,17 @@
       <updated>1681285375235</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

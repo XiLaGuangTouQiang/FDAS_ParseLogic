@@ -1,10 +1,11 @@
+package FileParse;
 
+import Data.*;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
-
 import java.io.*;
 
 public class XMLBuild {
@@ -12,12 +13,12 @@ public class XMLBuild {
     public void ICDXMLbuild() {
         Document document = DocumentHelper.createDocument();
         Element root = document.addElement("ALLCASICD");
-        for(int i = 0; i< main.LogicNameList.size(); i++){
+        for(int i = 0; i< CASData.LogicNameList.size(); i++){
             Element  CAS = root.addElement("ICD");
-            CAS.addAttribute("LogicName",main.LogicNameList.get(i).LogicName);
-            CAS.addAttribute("ICDName",main.LogicNameList.get(i).ICDName);
-            CAS.addAttribute("DataType",main.LogicNameList.get(i).DataType);
-            CAS.addAttribute("Comment",main.LogicNameList.get(i).Comment);
+            CAS.addAttribute("LogicName", CASData.LogicNameList.get(i).LogicName);
+            CAS.addAttribute("ICDName", CASData.LogicNameList.get(i).ICDName);
+            CAS.addAttribute("DataType", CASData.LogicNameList.get(i).DataType);
+            CAS.addAttribute("Comment", CASData.LogicNameList.get(i).Comment);
         }
         OutputFormat format = new OutputFormat();
         format.setEncoding("utf-8");
@@ -27,7 +28,7 @@ public class XMLBuild {
         format.setNewLineAfterDeclaration(false);
         format.setExpandEmptyElements(true);
         try {
-            String xmlFileName =main.CASALLEXCELPATH + "\\LogicName.xml";
+            String xmlFileName = FileParse.CASALLEXCELPATH + "\\LogicName.xml";
             File xmlFile= new File(xmlFileName);
             if(!xmlFile.exists())
             {
@@ -49,27 +50,25 @@ public class XMLBuild {
     public void CASXMLBuild(){
         Document document = DocumentHelper.createDocument();
         Element root = document.addElement("ALLCAS");
-        for(int i=0;i<main.CASList.size();i++){
+        for(int i = 0; i< CASData.CASList.size(); i++){
             Element  CAS = root.addElement("CAS");
-            CAS.addAttribute("CASID", String.valueOf(main.CASList.get(i).CASID));
-            CAS.addAttribute("CASLogic", main.CASList.get(i).CASLogic);
-            for(int j=0;j<main.CASList.get(i).LogicNameList.size();j++){
+            CAS.addAttribute("CASID", String.valueOf(CASData.CASList.get(i).CASID));
+            CAS.addAttribute("CASLogic", CASData.CASList.get(i).CASLogic);
+            for(int j = 0; j< CASData.CASList.get(i).LogicNameList.size(); j++){
                 Element ICD = CAS.addElement("ICD");
-                ICD.addAttribute("LogicName", main.CASList.get(i).LogicNameList.get(j).LogicName);
-                ICD.addAttribute("DataType", main.CASList.get(i).LogicNameList.get(j).DataType);
-                ICD.addAttribute("ICDName", main.CASList.get(i).LogicNameList.get(j).ICDName);
-                ICD.addAttribute("Comment", main.CASList.get(i).LogicNameList.get(j).Comment);
+                ICD.addAttribute("LogicName", CASData.CASList.get(i).LogicNameList.get(j).LogicName);
+                ICD.addAttribute("DataType", CASData.CASList.get(i).LogicNameList.get(j).DataType);
+                ICD.addAttribute("ICDName", CASData.CASList.get(i).LogicNameList.get(j).ICDName);
+                ICD.addAttribute("Comment", CASData.CASList.get(i).LogicNameList.get(j).Comment);
             }
         }
         OutputFormat format = new OutputFormat();
         format.setEncoding("utf-8");
         format.setNewlines(true);
-        //format.setIndent(true);
-        //format.setIndent(" ");
         format.setNewLineAfterDeclaration(false);
         format.setExpandEmptyElements(true);
         try {
-            String xmlFileName =main.CASALLEXCELPATH + "\\CASName.xml";
+            String xmlFileName = FileParse.CASALLEXCELPATH + "\\CASName.xml";
             File xmlFile= new File(xmlFileName);
             if(!xmlFile.exists())
             {
